@@ -17,7 +17,7 @@ defmodule SlackLoggerTest do
       Plug.Conn.resp(conn, 200, "ok")
     end
     Logger.error "This error should be logged to Slack"
-    :timer.sleep(100)
+    :timer.sleep(200)
   end
 
 end
