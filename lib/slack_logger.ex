@@ -3,6 +3,7 @@ defmodule SlackLogger do
 
   @env_webhook "SLACK_LOGGER_WEBHOOK_URL"
 
+  @doc false
   def init(__MODULE__) do
     unless levels = Application.get_env(:slack_logger_backend, :levels) do
       levels = [:error] # by default only log error level messages
@@ -10,15 +11,18 @@ defmodule SlackLogger do
     {:ok, %{levels: levels}}
   end
 
+  @doc false
   def handle_call(_request, state) do
     {:ok, state}
   end
 
+  @doc false
   def handle_event({level, _pid, {Logger, message, _timestamp, detail}}, %{levels: levels} = state) do
     handle_event(level, message, detail, levels)
     {:ok, state}
   end
 
+  @doc false
   def handle_info(_message, state) do
     {:ok, state}
   end

@@ -16,7 +16,7 @@ defmodule SlackLoggerTest do
       assert "POST" == conn.method
       Plug.Conn.resp(conn, 200, "ok")
     end
-    Logger.error "this error should be logged to slack"
+    Logger.error "This error should be logged to Slack"
     :timer.sleep(100)
   end
 
