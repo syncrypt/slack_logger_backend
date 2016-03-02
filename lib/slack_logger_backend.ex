@@ -13,9 +13,11 @@ defmodule SlackLoggerBackend do
   end
   ```
 
-  Then run `$ mix do deps.get, compile` to download and compile your dependencies.
+  Then run `$ mix do deps.get, compile` to download and compile
+  your dependencies.
 
-  Finally, add the `:slack_logger_backend` application as your list of applications in `mix.exs`:
+  Finally, add the `:slack_logger_backend` application as your
+  list of applications in `mix.exs`:
 
   ```elixir
   def application do
@@ -23,9 +25,10 @@ defmodule SlackLoggerBackend do
   end
   ```
 
-  You'll need to create a custom incoming webhook URL for your Slack team. Check the `config/dev.exs` file
-  for a configuration example. You can also put the webhook URL in the `SLACK_LOGGER_WEBHOOK_URL` environment
-  variable if you prefer.
+  You'll need to create a custom incoming webhook URL for your
+  Slack team. Check the `config/dev.exs` file for a configuration
+  example. You can also put the webhook URL in the
+  `SLACK_LOGGER_WEBHOOK_URL` environment variable if you prefer.
   """
 
   use Application
