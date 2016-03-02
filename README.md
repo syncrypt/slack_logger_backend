@@ -2,8 +2,8 @@ slack_logger_backend
 ====================
 [![Build Status](https://secure.travis-ci.org/craigp/slack_logger_backend.png?branch=master "Build Status")](http://travis-ci.org/craigp/slack_logger_backend) 
 [![Coverage Status](https://coveralls.io/repos/craigp/slack_logger_backend/badge.svg?branch=master&service=github)](https://coveralls.io/github/craigp/slack_logger_backend?branch=master) 
-[![hex.pm version](https://img.shields.io/hexpm/v/gmail.svg)](https://hex.pm/packages/gmail) 
-[![hex.pm downloads](https://img.shields.io/hexpm/dt/gmail.svg)](https://hex.pm/packages/gmail)
+[![hex.pm version](https://img.shields.io/hexpm/v/slack_logger_backend.svg)](https://hex.pm/packages/slack_logger_backend) 
+[![hex.pm downloads](https://img.shields.io/hexpm/dt/slack_logger_backend.svg)](https://hex.pm/packages/slack_logger_backend)
 [![Inline docs](http://inch-ci.org/github/craigp/slack_logger_backend.svg?branch=master&style=flat)](http://inch-ci.org/github/craigp/slack_logger_backend)
 
 A logger backend for posting errors to Slack
@@ -26,7 +26,7 @@ Finally, add the `:slack_logger_backend` application as your list of application
 
 ```elixir
 def application do
-  [applications: [:logger, :gmail]]
+  [applications: [:logger, :slack_logger_backend]]
 end
 ```
 
@@ -37,4 +37,5 @@ variable if you prefer.
 ### TODO
 
 * [ ] Improve documentation
+* [ ] Backoff strategies
 
