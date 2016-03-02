@@ -7,6 +7,7 @@ defmodule SlackLoggerTest do
   setup do
     bypass = Bypass.open
     Application.put_env :slack_logger_backend, :slack, [url: "http://localhost:#{bypass.port}/hook"]
+    System.put_env "SLACK_LOGGER_WEBHOOK_URL", "http://localhost:#{bypass.port}/hook"
     {:ok, %{bypass: bypass}}
   end
 

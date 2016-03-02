@@ -38,8 +38,11 @@ defmodule SlackLogger do
   end
 
   defp get_url do
-    unless System.get_env(@env_webhook) do
-      Application.get_env(:slack_logger_backend, :slack)[:url]
+    case System.get_env(@env_webhook) do
+      nil ->
+        Application.get_env(:slack_logger_backend, :slack)[:url]
+      url ->
+        url
     end
   end
 
