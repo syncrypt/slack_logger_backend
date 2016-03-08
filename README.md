@@ -30,9 +30,21 @@ def application do
 end
 ```
 
-You'll need to create a custom incoming webhook URL for your Slack team. Check the `config/dev.exs` file 
-for a configuration example. You can also put the webhook URL in the `SLACK_LOGGER_WEBHOOK_URL` environment
-variable if you prefer.
+You can set the log levels you want posted to slack in the config:
+
+```elixir
+config :slack_logger_backend, :levels, [:debug, :info, :warn, :error]
+```
+
+You'll need to create a custom incoming webhook URL for your Slack team. You can either configure the webhook
+in your config:
+
+```elixir
+config :slack_logger_backend, :slack, [url: "http://example.com"]
+```
+
+... or you can put the webhook URL in the `SLACK_LOGGER_WEBHOOK_URL` environment variable if you prefer. If
+you have both the environment variable will be preferred.
 
 ### TODO
 

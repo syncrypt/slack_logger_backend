@@ -10,13 +10,7 @@ defmodule SlackLogger do
 
   @doc false
   def init(__MODULE__) do
-    levels = case Application.get_env(:slack_logger_backend, :levels) do
-      nil ->
-        [:error] # by default only log error level messages
-      levels ->
-        levels
-    end
-    {:ok, %{levels: levels}}
+    {:ok, %{}}
   end
 
   @doc false
@@ -25,7 +19,13 @@ defmodule SlackLogger do
   end
 
   @doc false
-  def handle_event({level, _pid, {Logger, message, _timestamp, detail}}, %{levels: levels} = state) do
+  def handle_event({level, _pid, {Logger, message, _timestamp, detail}}, state) do
+    levels = case Application.get_env(:slack_logger_backend, :levels) do
+      nil ->
+        [:error] # by default only log error level messages
+      levels ->
+        levels
+    end
     if level in levels do
       handle_event(level, message, detail)
     end
