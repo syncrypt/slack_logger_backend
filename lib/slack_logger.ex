@@ -47,7 +47,7 @@ defmodule SlackLogger do
   end
 
   defp handle_event(level, message, [pid: _source_pid, module: module, function: function, file: file, line: line]) do
-    {:ok, json} = Poison.encode(%{text: """
+    {:ok, json} = JSON.encode(%{text: """
       An event has occurred: _#{message}_
       *Level*: #{level}
       *Module*: #{module}
